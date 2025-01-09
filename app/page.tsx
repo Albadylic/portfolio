@@ -61,8 +61,8 @@ const projects = [
 
 const stack = [
   { title: "React", icon: reactIcon },
-  { title: "Next", icon: nextIcon },
-  { title: "Node", icon: nodeIcon },
+  { title: "Next.js", icon: nextIcon },
+  { title: "Node.js", icon: nodeIcon },
   { title: "Typescript", icon: typescriptIcon },
   { title: "Python", icon: pythonIcon },
   { title: "SQL", icon: postgresqlIcon },
@@ -82,49 +82,62 @@ export default function Home() {
   }
 
   return (
-    <div id="main_container" className="grid grid-cols-3 gap-4">
-      <div id="info_container">
-        <h1>Gregor Thomson</h1>
-        <h2>London</h2>
-        <ul>
-          <li>GitHub</li>
-          <li>LinkedIn</li>
-          <li>Email</li>
-        </ul>
-      </div>
-      {openProject ? (
-        <div id="project_open" className="col-span-2">
-          <h2>{openProject.title}</h2>
-          <button onClick={() => setOpenProject(null)}>Close</button>
-          {openProject.deployed ? (
-            <a href={openProject.deployed}>Live</a>
-          ) : null}
-          <a href={openProject.repo}>Repo</a>
-          <p>{openProject.description}</p>
+    <div
+      id="main_container"
+      className="flex flex-col w-screen h-5/6 justify-center"
+    >
+      <section id="row_one" className="flex justify-between my-4">
+        <div id="info_container" className="basis-1/3">
+          <h1>Gregor Thomson</h1>
+          <h2>London</h2>
+          <ul className="flex">
+            <li className="p-1">GitHub</li>
+            <li className="p-1">LinkedIn</li>
+            <li className="p-1">Email</li>
+          </ul>
         </div>
-      ) : (
-        <div id="projects_container" className="col-span-2">
-          {projects.map((project, index) => (
+        {openProject ? (
+          <div id="project_open" className="basis-2/3">
+            <h2>{openProject.title}</h2>
+            <button onClick={() => setOpenProject(null)}>Close</button>
+            {openProject.deployed ? (
+              <a href={openProject.deployed}>Live</a>
+            ) : null}
+            <a href={openProject.repo}>Repo</a>
+            <p>{openProject.description}</p>
+          </div>
+        ) : (
+          <div id="projects_container" className="basis-2/3 flex flex-wrap">
+            {projects.map((project, index) => (
+              <div
+                className="project flex flex-col basis-1/3 items-center text-center p-2"
+                key={project.title}
+                onClick={() => viewProject(index)}
+              >
+                <p>{project.title}</p>
+                <p>{project.icon}</p>
+              </div>
+            ))}
+          </div>
+        )}
+      </section>
+
+      <section id="row_two" className="flex justify-between my-4">
+        <div id="sprite_container" className="basis-1/3">
+          Sprite
+        </div>
+        <div id="stack_container" className="basis-2/3 flex flex-wrap">
+          {stack.map((item) => (
             <div
-              className="project"
-              key={project.title}
-              onClick={() => viewProject(index)}
+              className="flex flex-col stack_item basis-1/6 items-center "
+              key={item.title}
             >
-              <p>{project.title}</p>
-              <p>{project.icon}</p>
+              <Image src={item.icon} alt={item.title} className="max-w-16" />
+              <p>{item.title}</p>
             </div>
           ))}
         </div>
-      )}
-      <div id="sprite_container">Sprite</div>
-      <div id="stack_container" className="col-span-2">
-        {stack.map((item) => (
-          <div className="stack_item" key={item.title}>
-            <Image src={item.icon} alt={item.title} />
-            <p>{item.title}</p>
-          </div>
-        ))}
-      </div>
+      </section>
     </div>
   );
 }
