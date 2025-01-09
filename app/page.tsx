@@ -84,10 +84,13 @@ export default function Home() {
   return (
     <div
       id="main_container"
-      className="flex flex-col w-screen h-5/6 justify-center"
+      className="flex w-screen h-5/6 justify-center flex-wrap"
     >
-      <section id="row_one" className="flex justify-between my-4">
-        <div id="info_container" className="basis-1/3">
+      <section
+        id="col_one"
+        className="flex flex-col justify-center my-4 basis-1/3"
+      >
+        <div id="info_container" className="my-4">
           <h1>Gregor Thomson</h1>
           <h2>London</h2>
           <ul className="flex">
@@ -96,8 +99,17 @@ export default function Home() {
             <li className="p-1">Email</li>
           </ul>
         </div>
+        <div id="sprite_container" className="my-4">
+          Sprite
+        </div>
+      </section>
+
+      <section
+        id="col_two"
+        className="flex  flex-col justify-center my-4 basis-2/3"
+      >
         {openProject ? (
-          <div id="project_open" className="basis-2/3">
+          <div id="project_open" className="flex my-4">
             <h2>{openProject.title}</h2>
             <button onClick={() => setOpenProject(null)}>Close</button>
             {openProject.deployed ? (
@@ -107,7 +119,7 @@ export default function Home() {
             <p>{openProject.description}</p>
           </div>
         ) : (
-          <div id="projects_container" className="basis-2/3 flex flex-wrap">
+          <div id="projects_container" className="flex flex-wrap my-4">
             {projects.map((project, index) => (
               <div
                 className="project flex flex-col basis-1/3 items-center text-center p-2"
@@ -120,13 +132,7 @@ export default function Home() {
             ))}
           </div>
         )}
-      </section>
-
-      <section id="row_two" className="flex justify-between my-4">
-        <div id="sprite_container" className="basis-1/3">
-          Sprite
-        </div>
-        <div id="stack_container" className="basis-2/3 flex flex-wrap">
+        <div id="stack_container" className="flex flex-wrap my-4">
           {stack.map((item) => (
             <div
               className="flex flex-col stack_item basis-1/6 items-center "
