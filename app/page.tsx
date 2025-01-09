@@ -88,7 +88,7 @@ export default function Home() {
   return (
     <div
       id="main_container"
-      className="flex flex-col justify-center flex-wrap p-4 bg-sky-900/50 rounded-lg m-1 max-w-max	items-center"
+      className="flex flex-col justify-center flex-wrap p-4 bg-sky-900/50 rounded-lg m-1 min-w-max items-center"
     >
       <div id="info_container" className="my-4 flex justify-between w-full">
         <div>
@@ -139,11 +139,11 @@ export default function Home() {
         ) : (
           <div
             id="projects_container"
-            className="flex flex-wrap my-4 basis-2/3"
+            className="grid grid-cols-3 my-4 basis-2/3"
           >
             {projects.map((project, index) => (
               <div
-                className="project flex flex-col basis-1/3 items-center text-center p-2"
+                className="project flex flex-col items-center text-center py-2 px-6 border-solid border-2  border-sky-200 m-1"
                 key={project.title}
                 onClick={() => viewProject(index)}
               >
@@ -157,7 +157,7 @@ export default function Home() {
       <div id="stack_container" className="flex flex-wrap my-4">
         {stack.map((item) => (
           <div
-            className="flex flex-col stack_item items-center border-solid border-2 border-sky-500 mx-2 p-6 rounded-full bg-slate-800/75 hover:bg-slate-300/50"
+            className="flex flex-col stack_item items-center border-solid border-2 border-sky-200 mx-2 p-6 rounded-full bg-slate-800/75 hover:bg-slate-300/50"
             key={item.title}
           >
             <Image src={item.icon} alt={item.title} className="max-w-8" />
