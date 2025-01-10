@@ -88,11 +88,11 @@ export default function Home() {
   return (
     <div
       id="main_container"
-      className="flex flex-col justify-center flex-wrap  bg-white-stripes rounded-lg m-1 min-w-min items-center w-[850px]"
+      className="flex flex-col justify-center flex-wrap  bg-bronze-light-stripes rounded-lg m-1 min-w-min items-center w-[850px]"
     >
       <div
         id="info_container"
-        className="my-4 flex justify-between items-center w-full bg-sky-stripes py-2 px-4"
+        className="my-4 flex justify-between items-center w-full bg-bronze-dark-stripes py-2 px-4"
       >
         <div>
           <h1 className="text-2xl">Gregor Thomson</h1>
@@ -126,23 +126,26 @@ export default function Home() {
         {openProject ? (
           <div
             id="project_open"
-            className="h-52	flex flex-col my-4 rounded basis-2/3 py-3 px-4 border-solid border-2  border-sky-900 bg-slate-800"
+            className="h-52	flex flex-col my-4 rounded basis-2/3 py-3 px-4 border-solid border-2  border-zinc-900 bg-zinc-300/65"
           >
             <h2 className="text-xl m-2">{openProject.title}</h2>
             <div className="mx-2 flex">
               <div className="flex flex-col basis-1/4">
                 <p
-                  className="cursor-pointer hover:text-sky-500"
+                  className="cursor-pointer hover:text-zinc-500"
                   onClick={() => setOpenProject(null)}
                 >
                   Close
                 </p>
                 {openProject.deployed ? (
-                  <a className="hover:text-sky-500" href={openProject.deployed}>
+                  <a
+                    className="hover:text-zinc-500"
+                    href={openProject.deployed}
+                  >
                     Live
                   </a>
                 ) : null}
-                <a className="hover:text-sky-500" href={openProject.repo}>
+                <a className="hover:text-zinc-500" href={openProject.repo}>
                   Repo
                 </a>
               </div>
@@ -151,14 +154,16 @@ export default function Home() {
           </div>
         ) : (
           <div>
-            <h2 className="text-xl w-full bg-slate-800 p-1">Projects</h2>
+            <h2 className="text-xl w-full bg-zinc-300/65 rounded p-1">
+              Projects
+            </h2>
             <div
               id="projects_container"
               className="grid grid-cols-3 my-4 basis-2/3"
             >
               {projects.map((project, index) => (
                 <div
-                  className="project flex flex-col items-center justify-center text-center py-3 px-4 border-solid border-2  border-sky-900 m-1 cursor-pointer bg-slate-800 hover:bg-slate-200/70 hover:text-slate-900"
+                  className="project flex flex-col items-center justify-center text-center py-3 px-4 border-solid border-2  border-zinc-900 m-1 cursor-pointer bg-zinc-300/65 hover:bg-slate-200/70 hover:text-slate-900 rounded"
                   key={project.title}
                   onClick={() => viewProject(index)}
                 >
@@ -172,11 +177,11 @@ export default function Home() {
       </section>
       <div
         id="stack_container"
-        className="flex flex-wrap justify-center my-4 bg-sky-stripes w-full p-2"
+        className="flex flex-wrap justify-center my-4 bg-bronze-dark-stripes w-full p-2"
       >
         {stack.map((item) => (
           <div
-            className="flex flex-col stack_item justify-center border-solid border-2 border-sky-200 mx-2 my-1 p-6 rounded-full bg-slate-800/75 hover:bg-slate-300/50"
+            className="flex flex-col stack_item justify-center border-solid border-2 border-zinc-500 mx-2 my-1 p-6 rounded-full bg-zinc-700/75 hover:bg-slate-300/50"
             key={item.title}
           >
             <Image src={item.icon} alt={item.title} className="max-w-8" />
