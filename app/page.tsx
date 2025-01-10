@@ -20,7 +20,7 @@ const projects = [
     repo: "https://github.com/Albadylic/recipe-viewer",
     description:
       "Using OpenAI's API to generate a recipe when a user uploads an image of a meal.",
-    icon: "🥘",
+    icon: "🌿",
   },
   {
     title: "Pokémon Trumps",
@@ -99,7 +99,7 @@ export default function Home() {
           <p className="text-xl">Full Stack Developer</p>
           <p className="my-1">London</p>
         </div>
-        <ul className="flex">
+        <ul className="flex items-center">
           <a href="https://github.com/Albadylic">
             <li className="m-2 max-w-10">
               <Image src={githubIcon} alt="github" />
@@ -118,52 +118,56 @@ export default function Home() {
         </ul>
       </div>
 
-      <section className="flex justify-center items-center my-2 w-full py-2 px-4">
+      <section className="flex justify-center items-center my-2 py-2 px-4 w-full">
         <div id="sprite_container" className="my-4 basis-1/3">
           Sprite
         </div>
-
-        {openProject ? (
-          <div
-            id="project_open"
-            className="h-52	flex flex-col my-4 rounded basis-2/3 py-3 px-4 border-solid border-2  border-zinc-900 bg-zinc-300/65"
-          >
-            <h2 className="text-xl m-2">{openProject.title}</h2>
-            <div className="mx-2 flex">
-              <div className="flex flex-col basis-1/4">
-                <p
-                  className="cursor-pointer hover:text-zinc-500"
-                  onClick={() => setOpenProject(null)}
-                >
-                  Close
-                </p>
-                {openProject.deployed ? (
+        <div className="w-3/4 h-64 flex flex-col justify-center">
+          <h2 className="text-xl w-full bg-zinc-400/65 rounded p-1">
+            Projects
+          </h2>
+          {openProject ? (
+            <div
+              id="project_open"
+              className="h-52	flex flex-col my-4 rounded basis-2/3 py-3 px-4 border-solid border-2  border-zinc-900 bg-zinc-400/65"
+            >
+              <h2 className="text-xl m-2">{openProject.title}</h2>
+              <div className="mx-2 flex">
+                <div className="flex flex-col basis-1/4">
+                  <p
+                    className="cursor-pointer hover:text-zinc-500"
+                    onClick={() => setOpenProject(null)}
+                  >
+                    Close
+                  </p>
+                  {openProject.deployed ? (
+                    <a
+                      className="hover:text-zinc-500"
+                      href={openProject.deployed}
+                      target="_blank"
+                    >
+                      Live
+                    </a>
+                  ) : null}
                   <a
                     className="hover:text-zinc-500"
-                    href={openProject.deployed}
+                    href={openProject.repo}
+                    target="_blank"
                   >
-                    Live
+                    Repo
                   </a>
-                ) : null}
-                <a className="hover:text-zinc-500" href={openProject.repo}>
-                  Repo
-                </a>
+                </div>
+                <p className="basis-3/4">{openProject.description}</p>
               </div>
-              <p className="basis-3/4">{openProject.description}</p>
             </div>
-          </div>
-        ) : (
-          <div>
-            <h2 className="text-xl w-full bg-zinc-300/65 rounded p-1">
-              Projects
-            </h2>
+          ) : (
             <div
               id="projects_container"
               className="grid grid-cols-3 my-4 basis-2/3"
             >
               {projects.map((project, index) => (
                 <div
-                  className="project flex flex-col items-center justify-center text-center py-3 px-4 border-solid border-2  border-zinc-900 m-1 cursor-pointer bg-zinc-300/65 hover:bg-slate-200/70 hover:text-slate-900 rounded"
+                  className="project flex flex-col items-center justify-center text-center py-3 px-4 border-solid border-2  border-zinc-900 m-1 cursor-pointer bg-zinc-400/65 hover:bg-slate-200/70 hover:text-slate-900 rounded"
                   key={project.title}
                   onClick={() => viewProject(index)}
                 >
@@ -172,8 +176,8 @@ export default function Home() {
                 </div>
               ))}
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </section>
       <div
         id="stack_container"
@@ -181,7 +185,7 @@ export default function Home() {
       >
         {stack.map((item) => (
           <div
-            className="flex flex-col stack_item justify-center border-solid border-2 border-zinc-500 mx-2 my-1 p-6 rounded-full bg-zinc-700/75 hover:bg-slate-300/50"
+            className="flex flex-col stack_item justify-center border-solid border-2 border-zinc-500 mx-2 my-1 p-6 rounded-full bg-zinc-700/75 hover:bg-zinc-400/50"
             key={item.title}
           >
             <Image src={item.icon} alt={item.title} className="max-w-8" />
