@@ -13,6 +13,8 @@ import githubIcon from "../public/icons/github.svg";
 import gmailIcon from "../public/icons/gmail.svg";
 import linkedinIcon from "../public/icons/linkedin.svg";
 
+import gregorSprite from "../public/sprites/gregor.png";
+
 const projects = [
   {
     title: "Recipe Sage",
@@ -120,7 +122,10 @@ export default function Home() {
 
       <section className="flex justify-center items-center my-2 py-2 px-4 w-full">
         <div id="sprite_container" className="my-4 basis-1/3">
-          Sprite
+          <Image
+            src={gregorSprite}
+            alt="Pixel art image showing a man with a red, white and blue jacket and ginger beard tossing a Pokeball"
+          />
         </div>
         <div className="w-3/4 h-64 flex flex-col justify-center">
           <h2 className="text-xl w-full bg-zinc-400/65 rounded p-1">
