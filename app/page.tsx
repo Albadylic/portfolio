@@ -125,6 +125,7 @@ export default function Home() {
           <Image
             src={gregorSprite}
             alt="Pixel art image showing a man with a red, white and blue jacket and ginger beard tossing a Pokeball"
+            className="w-64 h-64"
           />
         </div>
         <div className="w-3/4 h-64 flex flex-col justify-center">
