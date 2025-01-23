@@ -48,12 +48,12 @@ const projects = [
     icon: "🤣",
   },
   {
-    title: "Shrek Chat",
-    deployed: "https://shrek-chat.onrender.com/",
-    repo: "https://github.com/Albadylic/shrek-chat/",
+    title: "Data Analysis",
+    deployed: "",
+    repo: "https://github.com/Albadylic/pokemon-data",
     description:
-      "A full-stack application using React and Python. The app uses RAG to enable the user to ask any question about the movie Shrek.",
-    icon: "🧅",
+      "Final project of Cambridge Spark's Data Analysis bootcamp - an open ended data analysis task. I chose to examine defense stats amongst Pokemon.",
+    icon: "🪨",
   },
   {
     title: "Learnset Checker",
